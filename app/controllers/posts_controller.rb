@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
     get "/posts" do
-        Post.all.to_json(include: :user)
+        Post.all.order('created_at DESC').to_json(include: :user)
     end
 
     get "/posts/:id" do
