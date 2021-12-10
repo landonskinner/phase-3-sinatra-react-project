@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :linkedin
       t.string :image_url
       t.string :bio
+      t.string :last_active
     end
   end
 end

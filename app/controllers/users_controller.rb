@@ -4,6 +4,10 @@ class UsersController < ApplicationController
         User.all.to_json(include: [:posts, :favorites])
     end
 
+    get "/users/active" do
+        User.all.order('last_active DESC').first.to_json(include: [:posts, :favorites])
+    end
+
     get "/users/:id" do
         User.find([params[:id]]).to_json(include: [:posts, :favorites])
     end
@@ -17,7 +21,8 @@ class UsersController < ApplicationController
             github: params[:github],
             linkedin: params[:linkedin],
             image_url: params[:image_url],
-            bio: params[:bio]
+            bio: params[:bio],
+            last_active: params[:last_active]
         })
         user.to_json(include: [:posts, :favorites])
     end
@@ -32,7 +37,8 @@ class UsersController < ApplicationController
             github: params[:github],
             linkedin: params[:linkedin],
             image_url: params[:image_url],
-            bio: params[:bio]
+            bio: params[:bio],
+            last_active: params[:last_active]
         })
         user.to_json(include: [:posts, :favorites])
     end
