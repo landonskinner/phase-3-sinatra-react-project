@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2021_12_08_163451) do
     t.string "linkedin"
     t.string "image_url"
     t.string "bio"
+    t.string "last_active"
   end
 
 end
